@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+
+    <h2>Customer Registration</h2>
+<form action="/registerAuth" method="POST">
+	<input type="text" name = "Email" placeholder="email" required> </br>
+    <input type="text" name = "First Name" placeholder="first name" required/> </br>
+    <input type="text" name = "Last Name" placeholder="last name" required/> </br>
+    <div>
+    <label for="DOB">DOB</label>
+    <input type="date" name = "DOB" required/> </br>
+    </div>
+    <input type="text" name = "Address" placeholder="address" required/> </br>
+    <input type="text" name = "Passport Number" placeholder="passport number" required/> </br>
+    <label for="Passport Expiration">passport_exp</label>
+    <input type="date" name = "Passport Expiration" required/> </br>
+    <input type="text" name = "Passport Country" placeholder="passport country" required/> </br>
+	<input type="password" name = "password" placeholder="password" required/></br>
+	<input type="submit" value = "Register Customer" />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+    <h2>Staff Registration</h2>
+<form action="/registerAuth" method="POST">
+    <input type="text" name = "username" placeholder="username" required/> </br>
+    <input type="password" name = "password" placeholder="password" required/></br>
+	<input type="text" name = "First Name" placeholder="first name" required/> </br>
+    <input type="text" name = "Last Name" placeholder="last name" required/> </br>
+	<div>
+	<label for="DOB">DOB</label>
+	<input type="date" name = "DOB" required/> </br>
+	</div>
+	<input type="text" name = "Airline Name" placeholder="airline name" required/> </br>
+    <input type="submit" value = "Register Staff" />
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}}</p>
+    {% endif %}
+</form>
+
+<a href="/">Go back</a>
+</body>
+</html>

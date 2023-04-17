@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+	<a href="/login">Login</a>
+	<a href="/register">Register</a>
+
+<h1>Flight Search</h1>
+
+	<form action="/search" method="POST">
+		<label>Leaving From:</label>
+		<input type="text" name="Departure_Airport"><br><br>
+
+		<label> Going To:</label>
+		<input type="text" name="Arrival_Airport"><br><br>
+
+		<label>Departure Date:</label>
+		<input type="text" name="departure_date" placeholder="Year-Month-Day"><br><br>
+		
+		<!-- <label>Return Date:</label>
+		<input type="date" name="return_date"><br><br> -->
+		
+		<input type="submit" value = Submit><br><br>
+	</form>
+	
+	<h2>Flight Status Search</h2>
+	<form>
+		<label>Airline Name:</label>
+		<input type="text" name="airline_name"><br><br>
+		
+		<label>Flight Number:</label>
+		<input type="text" name="flight_number"><br><br>
+		
+		<label>Arrival Date:</label>
+		<input type="date" name="arrival_date"><br><br>
+		
+		<input type="submit" value="Search">
+	</form>
+
+<body>
+</html>
