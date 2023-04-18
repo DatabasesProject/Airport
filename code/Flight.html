@@ -17,8 +17,7 @@
         <th>Arrival_Airport</th>
         <th>Arrival Date</th>
         <th> Price</th> 
-        <th> Available Tickets</th>
-        <th> Enter Number of Tickets</th>
+        <th>Flight_Status</th>
         <th> Purchase</th>
        
 
@@ -32,8 +31,7 @@
             <td>{{line['Arrival_Airport']}}</td>
             <td>{{line['Arrival_date']}}</td>
             <td>{{line['BasePrice']}}</td>
-            <td>{{line['Seats']}}</td>
-            <td><input type="number" name="Tickets"></td>
+            <td>{{line['Status']}}</td>
             <td><a href="/PurchaseAuth">BUY NOW</a></td>
         </tr>
     {% endfor %}
@@ -45,3 +43,4 @@
     
     
     </html>
+
