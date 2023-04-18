@@ -2,44 +2,209 @@
 <html>
 
 <head>
-
+	<title>Flight Search</title>
 </head>
 
-<body>
-	<a href="/login">Login</a>
-	<a href="/register">Register</a>
 
-<h1>Flight Search</h1>
+<header>Flight Search</header>
 
-	<form action="/search" method="POST">
-		<label>Leaving From:</label>
-		<input type="text" name="Departure_Airport"><br><br>
 
-		<label> Going To:</label>
-		<input type="text" name="Arrival_Airport"><br><br>
-
-		<label>Departure Date:</label>
-		<input type="text" name="departure_date" placeholder="Year-Month-Day"><br><br>
-		
-		<!-- <label>Return Date:</label>
-		<input type="date" name="return_date"><br><br> -->
-		
-		<input type="submit" value = Submit><br><br>
-	</form>
-	
-	<h2>Flight Status Search</h2>
-	<form>
-		<label>Airline Name:</label>
-		<input type="text" name="airline_name"><br><br>
-		
-		<label>Flight Number:</label>
-		<input type="text" name="flight_number"><br><br>
-		
-		<label>Arrival Date:</label>
-		<input type="date" name="arrival_date"><br><br>
-		
-		<input type="submit" value="Search">
-	</form>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
 
 <body>
+	<div id="one-way">
+		<h2>One-Way</h2>
+		<form action="/search" method="POST">
+			<!-- <label>Leaving From:</label>
+			<input type="text" name="Departure_Airport"> -->
+
+			<label>Leaving From:</label>
+			<select name="Departure_Airport" required>
+				<option value="">Select Departure Airport</option>
+				<option value="JFK">John F. Kennedy International Airport</option>
+				<option value="LAX">Los Angeles International Airport</option>
+				<option value="ORD">O'Hare International Airport</option>
+				<option value="DFW">Dallas/Fort Worth International Airport</option>
+				<option value="PVG"> Shanghai Pudong International Airport</option>
+			</select>
+
+
+			<label> Going To:</label>
+			<!-- <input type="text" name="Arrival_Airport"> -->
+			<select name="Arrival_Airport" required>
+				<option value="">Select Destination Airport</option>
+				<option value="JFK">John F. Kennedy International Airport</option>
+				<option value="LAX">Los Angeles International Airport</option>
+				<option value="ORD">O'Hare International Airport</option>
+				<option value="DFW">Dallas/Fort Worth International Airport</option>
+				<option value="PVG"> Shanghai Pudong International Airport</option>
+			</select>
+
+			<label>Departure Date:</label>
+			<input type="text" name="departure_date" placeholder="Year-Month-Day">
+
+			<label>Number of Travelers:</label>
+			<input type="number" name="num_travelers" min="1" max="10" required> <br><br>
+
+			<input type="submit" value=Submit><br><br>
+		</form>
+	</div>
+
+
+	<div id="Roundtrip">
+		<h2>Roundtrip</h2>
+		<form action="/search" method="POST">
+
+			<label>Leaving From:</label>
+			<select name="Departure_Airport" required>
+				<option value="">Select Departure Airport</option>
+				<option value="JFK">John F. Kennedy International Airport</option>
+				<option value="LAX">Los Angeles International Airport</option>
+				<option value="ORD">O'Hare International Airport</option>
+				<option value="DFW">Dallas/Fort Worth International Airport</option>
+				<option value="PVG"> Shanghai Pudong International Airport</option>
+			</select>
+
+
+			<label> Going To:</label>
+			<!-- <input type="text" name="Arrival_Airport"> -->
+			<select name="Arrival_Airport" required>
+				<option value="">Select Destination Airport</option>
+				<option value="JFK">John F. Kennedy International Airport</option>
+				<option value="LAX">Los Angeles International Airport</option>
+				<option value="ORD">O'Hare International Airport</option>
+				<option value="DFW">Dallas/Fort Worth International Airport</option>
+				<option value="PVG"> Shanghai Pudong International Airport</option>
+			</select>
+
+			<label>Departure Date:</label>
+			<input type="text" name="departure_date" placeholder="Year-Month-Day">
+
+			<label>Return Date:</label>
+			<input type="text" name="return_date" placeholder="Year-Month-Day">
+
+			<label>Number of Travelers:</label>
+			<input type="number" name="num_travelers" min="1" max="10" required> <br><br>
+
+			<input type="submit" value=Submit><br><br>
+		</form>
+	</div>
+
+	<div id="Flight_Status">
+		<h2>Flight Status</h2>
+		<form>
+			<label>Airline Name:</label>
+			<input type="text" name="airline_name" placeholder="Ex: Jet Blue" required>
+
+			<label>Flight Number:</label>
+			<input type="text" name="flight_number" placeholder=" 6 digits" required>
+
+			<label>Arrival Date:</label>
+			<input type="text" name="arrival_date" placeholder="Year-Month-Day" required>
+
+			<input type="submit" value="Search"><br><br>
+		</form>
+	</div>
+
+	<body>
+
+
+		<style>
+			header {
+				/* display: inline-block; */
+				vertical-align: top;
+				font-size: 100px;
+				font-weight: bold;
+				text-align: center;
+
+			}
+
+			body {
+				font-family: Arial, sans-serif;
+			}
+
+			h1 {
+				margin-top: 50px;
+			}
+
+			a {
+				align-items: center;
+				margin: 10px;
+				padding: 10px;
+				background-color: #008CBA;
+				color: white;
+				text-decoration: none;
+				border-radius: 5px;
+				font-weight: bold;
+				transition: background-color 0.2s ease-in-out;
+			}
+
+			a:hover {
+				background-color: #005F6B;
+			}
+
+			div {
+				display: inline-block;
+				vertical-align: top;
+				margin: 10px;
+			}
+
+			form {
+				display: inline-block;
+				text-align: left;
+				padding: 20px;
+				background-color: #F5F5F5;
+				border-radius: 5px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+			}
+
+			form label {
+				display: block;
+				margin-bottom: 10px;
+				font-weight: bold;
+			}
+
+			form input[type="text"],
+			form select {
+				display: block;
+				width: 100%;
+				padding: 10px;
+				border-radius: 5px;
+				border: 1px solid #ccc;
+				box-sizing: border-box;
+				margin-bottom: 20px;
+				font-size: 16px;
+			}
+
+			form input[type="submit"] {
+				background-color: #008CBA;
+				color: white;
+				border: none;
+				padding: 10px;
+				border-radius: 5px;
+				font-weight: bold;
+				cursor: pointer;
+				transition: background-color 0.2s ease-in-out;
+			}
+
+			form input[type="submit"]:hover {
+				background-color: #005F6B;
+			}
+
+			#one-way,
+			#roundtrip,
+			#flight-status {
+				margin-top: 50px;
+
+			}
+
+			h2 {
+				font-size: 24px;
+				font-weight: bold;
+				margin-bottom: 20px;
+			}
+		</style>
+
+
 </html>
