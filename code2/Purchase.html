@@ -1,0 +1,54 @@
+<html>
+<head>
+</head>
+<body>
+
+    <h1>Purchase Information</h1>
+
+<form action="/PurchaseAuth" method="POST">
+	<!-- <input type="text" name = "Customer Email" placeholder="customer email" required> </br> -->
+    <label for=Email> Email</label>
+    <input type="text" name="Email" placeholder='Email' required><br></br>
+
+    <label for= Passenger_First_Name> Passenger First Name</label>
+    <input type="text" name = "Passenger_First_Name" placeholder="First Name" required/> <br></br>
+
+    <label for= Last_Name> Passenger Last Name</label>
+    <input type="text" name = "Last_Name" placeholder="Last Name" required/><br></br>
+
+    <label for= Card_Name> Card_Name</label>
+    <input type="text" name = "Card_Name" placeholder="Name on the card" required/><br></br>
+    
+    <label for="Card_Number"> Card Number </label>
+    <input type="text" name = "Card_Number" placeholder="Card_Number" required/> <br></br>
+
+    <label for="Card_Expiration">Card Expiration</label>
+    <input type="text" name = "Card_Expiration" placeholder="Year-Month-Day" required/><br> </br>
+
+     
+    <label for="Passenger DOB">Date Of Birth</label>
+    <input type="text" name = "DOB" placeholder="Year-Month-Day" required/> <br></br>
+     
+    <label for="Card_type">Card Type</label>
+    <input type="text" name = "Card_Type" placeholder="Debit/Credit" required/><br> </br>
+
+    <label for="Purchase Date">Purchase Date</label>
+    <input type="text" name = "Purchase_date" placeholder="Year-Month-Day"  required/> <br></br>
+
+    <label for="Purchase Time">Purchase Time</label>
+    <input type="text" name = "Purchase_time" placeholder="Hour-Minutes-Seconds"  required/> <br></br>
+  
+	<input type="submit" value = "Submit" />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+  
+<h2> Total Amount : {{Final_price}} </h2>
+
+<a href="/Customer_Account">Pay</a>
+
+</body>
+
+</html>

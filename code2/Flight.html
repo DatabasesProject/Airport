@@ -1,0 +1,46 @@
+<html>
+    <head>
+    </head>
+    <body>
+    
+    <style type="text/css">
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+    
+    <table>
+        <th>Airline</th>
+        <th>Flight Number</th>
+        <th>Departure_Airport</th>
+        <th>Departure Date</th>
+        <th>Arrival_Airport</th>
+        <th>Arrival Date</th>
+        <th> Price </th> 
+        <th>Flight_Status</th>
+        <th> Purchase</th>
+       
+
+    
+    {% for line in Flight %}
+        <tr>
+            <td>{{line['Airline_Name']}}</td>
+            <td>{{line['Flight_Number']}}</td>
+            <td>{{line['Departure_Airport']}}</td>
+            <td>{{line['Departure_date']}}</td>
+            <td>{{line['Arrival_Airport']}}</td>
+            <td>{{line['Arrival_date']}}</td>
+            <td>{{line['BasePrice']}}</td>
+            <td>{{line['Flight_status']}}</td>
+            <td><a href="/Purchase">BUY NOW</a></td>
+        </tr>
+
+    {% endfor %}
+    </table>
+
+    <a href="/">Go back</a>
+ 
+    </body>
+    
+    
+    </html>

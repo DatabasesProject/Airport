@@ -1,0 +1,98 @@
+<html>
+<head>
+    <a href="/">Go back</a>
+</head>
+<body>
+
+    <h2>Customer Registration</h2>
+<form action="/Cregister" method="POST">
+
+    <label for="Email">Email</label>
+	<input type="text" name = "Email" required> 
+    
+    <label for="Password">password</label>
+    <input type="password" name = "Password" required/>
+
+    <label for="PhoneNumber">Phone Number</label>
+    <input type="text" name = "PhoneNumber" /> <br></br>
+
+    <label for="FirstName">First_name</label>
+    <input type="text" name = "FirstName"  required/>
+
+    <label for="Last_name">Last_name</label>
+    <input type="text" name = "LastName"  required/> 
+
+    <label for="DOB">Date Of Birth</label>
+    <input type="text" name = "DOB" placeholder="Year-Month-Day" required/> <br></br>
+
+    <label for="Passport_num">Passport Number</label>
+    <input type="text" name = "PassportNumber"  required/> 
+    
+    <label for="PassportCountry">Passport Country</label>
+    <input type="text" name = "PassportCountry"  required/>
+
+    <label for="Passport Expiration">Passport Exp</label>
+    <input type="text" name = "PassportExpiration" placeholder="Year-Month-Day" required/><br> </br>
+    
+    <label for="Address">Street</label>
+    <input type="text" name = "Street"  required/> 
+
+    <label for="Buliding">Buliding</label>
+    <input type="text" name = "Buliding"  required/> 
+
+    <label for="Apartment">Apartment</label>
+    <input type="text" name = "Apartment"  required/> <br></br>
+
+    <label for="City">City</label>
+    <input type="text" name = "City" required/> 
+
+    <label for="State">State</label>
+    <input type="text" name = "State" required/> 
+
+    <label for="Zip">Zip Code</label>
+    <input type="text" name = "ZipCode" required/> <br></br>
+
+
+	<input type="submit" value = "Register Customer" /> <br> <br></br>
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+    <h2>Staff Registration</h2>
+<form action="/Sregister" method="POST">
+
+    <label for="s_Email">Staff Email</label>
+	<input type="text" name = "SEmail" required> 
+
+    <label for="SPhone_number">Staff Phone Number</label>
+    <input type="text" name = "SPhoneNumber" required/><br></br>
+
+    <label for="FirstName">First Name</label>
+	<input type="text" name = "FirstName" required/> 
+
+    <label for="LastName">Last Name</label>
+    <input type="text" name = "LastName" required/> 
+
+	<label for="DOB">Date Of Birth</label>
+	<input type="text" name = "DOB" placeholder = 'Year-Month-Day' required/><br> </br>
+
+    <label for="username">Username</label>
+    <input type="text" name = "username" required/>
+
+    <label for="Password">Password </label>
+    <input type="password" name = "password" required/><br> </br>
+
+    <label for="Airline">Airline Name</label>
+	<input type="text" name = "AirlineName" required/> <br></br>
+
+
+    <input type="submit" value = "Register Staff" />
+
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}}</p>
+    {% endif %}
+</form>
+
+</body>
+</html>

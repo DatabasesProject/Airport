@@ -1,0 +1,58 @@
+<html>
+    <head>
+    </head>
+    <body>
+    
+    <style type="text/css">
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+
+<!-- Need to Add tracking spendind and a rate and comment section for past flights -->
+    
+    <table>
+        <caption>Future Flights</caption>
+        <th>Airline</th>
+        <th>Flight Number</th>
+        <th>Departure Date</th>
+        <th>Departure Airport</th>
+        <th>Arrival Date</th>
+        <th>Arrival Airport</th>
+        <th>Base Price</th>
+        <th>Number of seats</th>
+    
+    {% for line in future_flights %}
+        <tr>
+            <td>{{line['Airline_Name']}}</td>
+            <td>{{line['Flight_Number']}}</td>
+            <td>{{line['Departure_date']}}</td>
+            <td>{{line['Departure-Airport']}}</td>
+            <td>{{line['Arrival_date']}}</td>
+            <td>{{line['Arrival_Airport']}}</td>
+            <td>{{line['BasePrice']}}</td>
+            <td>{{line['Number_seats']}}</td>
+        </tr>
+    {% endfor %}
+    </table> <br><br/>
+
+
+    <table>
+        <caption>Past Flights</caption>
+        <th>Airline</th>
+        <th>Flight Number</th>
+        <th>Arrival Date</th>
+        <th>Arrival Airport</th>
+    
+    {% for line in past_flights %}
+        <tr>
+            <td>{{line['Airline_Name']}}</td>
+            <td>{{line['Flight_Number']}}</td>
+            <td>{{line['Arrival_date']}}</td>
+            <td>{{line['Arrival_Airport']}}</td>
+        </tr>
+    {% endfor %}
+    </table> <br><br/>
+    <a href="/CustomerA"> Back </a> <br> </br>
+</body>
+</html>
