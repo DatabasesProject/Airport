@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Flight Search</title>
+</head>
+
+
+<header>Flight Search</header>
+
+{% if Customer_logged_in %}
+<a href="/CustomerA"> Customer Account</a>
+{% else %}
+<a href="/login">Login</a>
+<a href="/Register">Register</a>
+{% endif %}
+
+
+<body>
+
+	<div id="one-way">
+		<h2>One-Way</h2>
+		<form action="/OneWay" method="POST">
+			
+			<label>Leaving From:</label>
+			<select name="Departure_Airport" required>
+				<option value="">Select Departure Airport</option>
+				{% for line in Departure%}
+				<option value="{{ line['Departure_Airport'] }}">{{ line['Departure_Airport'] }} </option>	
+				{% endfor %}	
+			</select>
+
+
+			<label> Going To:</label>
+			<!-- <input type="text" name="Arrival_Airport"> -->
+			<select name="Arrival_Airport" required>
+				<option value="">Select Arrival Airport</option>
+				{% for line in Arrival%}
+				<option value="{{ line['Arrival_Airport'] }}">{{ line['Arrival_Airport'] }} </option>	
+				{% endfor %}	
+			</select>
+
+			<label>Departure Date:</label>
+			<input type="date" name="departure_date" placeholder="Year-Month-Day">
+
+			<label>Number of Travelers:</label>
+			<select id="num_travelers" name="num_travelers" required>
+				<option value="1" selected>1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			  </select> <br></br>
+
+			<input type="submit" value=Submit><br><br>
+		</form>
+	</div>
+
+
+	<div id="Roundtrip">
+		<h2>Roundtrip</h2>
+		<form action="/Roundtrip" method="POST">
+
+			<label>Leaving From:</label>
+			<select name="Departure_Airport" required>
+				<option value="">Select Departure Airport</option>
+				{% for line in Departure%}
+				<option value="{{ line['Departure_Airport'] }}">{{ line['Departure_Airport'] }} </option>	
+				{% endfor %}	
+			</select>
+
+
+			<label> Going To:</label>
+			<!-- <input type="text" name="Arrival_Airport"> -->
+			<select name="Arrival_Airport" required>
+				<option value="">Select Arrival Airport</option>
+				{% for line in Arrival%}
+				<option value="{{ line['Arrival_Airport'] }}">{{ line['Arrival_Airport'] }} </option>	
+				{% endfor %}	
+			</select>
+
+			<label>Departure Date:</label>
+			<input type="date" name="departure_date">
+
+			<label>Return Date:</label>
+			<input type="date" name="return_date">
+
+			<label>Number of Travelers:</label>
+			<select id="num_travelers" name="num_travelers" required>
+				<option value="1" selected>1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			  </select> <br></br>
+
+			<input type="submit" value=Submit><br><br>
+		</form>
+	</div>
+
+	<div id="Flight_Status">
+		<h2>Flight Status</h2>
+		<form action="/Flight_Status" method="POST" >
+			
+			<label>Airline Name:</label>
+			<select name='Airline_Name' required>
+				<option value="">Select Airline Name</option>
+				{% for line in Airline_N%}
+				<option value="{{ line['Airline_Name'] }}">{{ line['Airline_Name'] }} </option>	
+				{% endfor %}	
+			</select>
+
+			<label>Flight Number:</label>
+			<select name="Flight_Number" required>
+				<option value="">Select Flight Number</option>
+				{% for line in Flight_num%}
+				<option value="{{ line['flight_number'] }}">{{ line['flight_number'] }} </option>	
+				{% endfor %}	
+			</select>
+
+			<label>Arrival Date:</label>
+			<input type="date" name="arrival_date" required>
+
+			<input type="submit" value="Search"><br><br>
+		</form>
+	</div>
+
+	<body>
+
+
+		<style>
+			header {
+				/* display: inline-block; */
+				vertical-align: top;
+				font-size: 100px;
+				font-weight: bold;
+				text-align: center;
+
+			}
+
+			body {
+				font-family: Arial, sans-serif;
+			}
+
+			h1 {
+				margin-top: 50px;
+			}
+
+			a {
+				align-items: center;
+				margin: 10px;
+				padding: 10px;
+				background-color: #008CBA;
+				color: white;
+				text-decoration: none;
+				border-radius: 5px;
+				font-weight: bold;
+				transition: background-color 0.2s ease-in-out;
+			}
+
+			a:hover {
+				background-color: #005F6B;
+			}
+
+			div {
+				display: inline-block;
+				vertical-align: top;
+				margin: 10px;
+			}
+
+			form {
+				display: inline-block;
+				text-align: left;
+				padding: 20px;
+				background-color: #F5F5F5;
+				border-radius: 5px;
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+			}
+
+			form label {
+				display: block;
+				margin-bottom: 10px;
+				font-weight: bold;
+			}
+
+			form input[type="text"],
+			form select {
+				display: block;
+				width: 100%;
+				padding: 10px;
+				border-radius: 5px;
+				border: 1px solid #ccc;
+				box-sizing: border-box;
+				margin-bottom: 20px;
+				font-size: 16px;
+			}
+
+			form input[type="submit"] {
+				background-color: #008CBA;
+				color: white;
+				border: none;
+				padding: 10px;
+				border-radius: 5px;
+				font-weight: bold;
+				cursor: pointer;
+				transition: background-color 0.2s ease-in-out;
+			}
+
+			form input[type="submit"]:hover {
+				background-color: #005F6B;
+			}
+
+			#one-way,
+			#roundtrip,
+			#flight-status {
+				margin-top: 50px;
+
+			}
+
+			h2 {
+				font-size: 24px;
+				font-weight: bold;
+				margin-bottom: 20px;
+			}
+		</style>
+
+
+</html>
