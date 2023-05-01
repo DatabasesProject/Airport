@@ -1,0 +1,36 @@
+<html>
+
+<head>
+</head>
+<body>
+
+    <style type="text/css">
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+
+
+
+
+<h2>Flight Ratings</h2>
+
+<table>
+	<th>Customer Email</th>
+	<th>Customer Name</th>
+	<th>Airline</th>
+	<th>flights</th>
+
+{% for line in flights %}
+	<tr>
+		<td>{{line['email']}}</td>
+		<td>{{line['fname']}}</td>
+		<td>{{line['airline']}}</td>
+		<td>{{line['flights']}}</td>
+	</tr>
+{% endfor %}
+
+
+
+</body>
+</html?
