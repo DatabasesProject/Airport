@@ -2,7 +2,7 @@
 
 Welcome to the Air Ticket Reservation Web Application! This application is designed to facilitate the reservation and booking of air tickets for various flights. It provides a user-friendly interface for customers to search for flights, purchase tickets, and view important flight information. The system also streamlines the operations for airline staff, allowing them to manage flight statuses and ensure a smooth travel experience.
 
-![My Image](https://raw.githubusercontent.com/JackShkifati28/Air-Ticket-Reservation/main/Images/Homepage.png)
+![My Image](https://raw.githubusercontent.com/JackShkifati28/Air-Ticket-Reservation/main/Images/Homep1.png)
 
 ## Tools and Technologies Used
 
