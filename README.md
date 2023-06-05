@@ -31,7 +31,7 @@ The Relational Diagram showcases the design of the database schema for the Air T
 
 # Website Features
 
-## Home Page (Not Logged-in)
+### Home Page (Not Logged-in)
 
 When the user is not logged in, the following features should be available on the home page:
 
@@ -51,7 +51,7 @@ When the user is not logged in, the following features should be available on th
 
 Once a user has successfully logged in, the reservation system should display their respective home page based on the user's role. Additionally, after executing other actions or sequences of related actions, control will return to the component that displays the home page. If the previous action was unsuccessful, the home page should display an error message.
 
-## Customer Use Cases
+### Customer Use Cases
 
 After successfully logging in as a customer, the user may perform the following use cases:
 
@@ -77,7 +77,7 @@ After successfully logging in as a customer, the user may perform the following 
 - **Logout**:
   - The session is destroyed, and a "goodbye" page or the login page is displayed.
 
-## Airline Staff Use Cases
+### Airline Staff Use Cases
 
 After successfully logging in as an airline staff member, the user may perform the following use cases:
 
