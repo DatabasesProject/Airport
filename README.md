@@ -9,8 +9,6 @@ The Air Ticket Reservation Web Application utilizes the following tools and tech
 ### Front-end:
 - HTML: Used for creating the structure and layout of web pages.
 - CSS: Employed for styling the web pages and enhancing the visual presentation.
-- JavaScript: Used for implementing dynamic behavior and interactivity within the application.
-- CSS Animations: Implemented to add fluid and engaging animations, enhancing the overall user experience.
 
 ### Back-end:
 - Python Flask: Serves as the core framework for building the server-side logic and handling requests and responses.
