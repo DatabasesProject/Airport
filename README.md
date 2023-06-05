@@ -29,6 +29,8 @@ The Relational Diagram showcases the design of the database schema for the Air T
 
 ![My Image](https://raw.githubusercontent.com/JackShkifati28/Air-Ticket-Reservation/main/Images/R-diagram.png)
 
+# Website Features
+
 ## Home Page (Not Logged-in)
 
 When the user is not logged in, the following features should be available on the home page:
