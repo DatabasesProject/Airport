@@ -20,7 +20,10 @@ These tools and technologies enable the development of a dynamic and interactive
 
 The ER (Entity-Relationship) diagram represents the conceptual model of the Air Ticket Reservation Web Application. It illustrates the entities involved in the system, their attributes, and the relationships between them. The ER diagram provides a visual representation of the database structure and serves as a basis for designing the relational schema.
 
-![My Image](https://raw.githubusercontent.com/JackShkifati28/Air-Ticket-Reservation/Images/ER-Diagram.png)
+![My Image](https://raw.githubusercontent.com/JackShkifati28/Air-Ticket-Reservation/main/Images/ER-Diagram.png)
+
+
+![My Image](https://raw.githubusercontent.com/JackShkifati28/JackShkifati28/main/CompE1.jpeg)
 
 ## Relational Diagram
 
