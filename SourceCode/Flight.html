@@ -1,0 +1,59 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+
+    <h1> Available Flights </h1>
+
+    <form action="/purchase" method="post">
+
+        <table>
+            <th>Airport ID</th>
+            <th>Flight Number</th>
+            <th>Airline</th>
+            <th>Departure_Airport</th>
+            <th>Departure Date</th>
+            <th>Departure Time</th>
+            <th>Arrival_Airport</th>
+            <th>Arrival Date</th>
+            <th>Arrival Time</th>
+            <th> Price </th>
+            <th> Purchase</th>
+
+
+
+            {% for line in Flight %}
+            <tr>
+                <td>{{line['Airport_ID']}}</td>
+                <td>{{line['Flight_Number']}}</td>
+                <td>{{line['Airline_Name']}}</td>
+                <td>{{line['Departure_Airport']}}</td>
+                <td>{{line['Departure_date']}}</td>
+                <td>{{line['Departure_time']}}</td>
+                <td>{{line['Arrival_Airport']}}</td>
+                <td>{{line['Arrival_date']}}</td>
+                <td>{{line['Arrival_time']}}</td>
+                <td>{{line['BasePrice']}}</td>
+                <td> Select: <input type="radio" name="Select_Flight" value="{{ line }}"> </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Purchase">
+    </form>
+
+    <a href="/">Go back</a>
+
+</body>
+
+
+</html>
