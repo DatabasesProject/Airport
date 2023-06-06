@@ -1,0 +1,107 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+	<style type="text/css">
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+
+<h2>Flight Ratings</h2>
+<table>
+	<th>Flight Number</th>
+	<th>Airline</th>
+	<th>Average Rating</th>
+	<th>Comments</th>
+
+{% for line in flight_info %}
+	<tr>
+		<td>{{line['flight_num']}}</td>
+		<td>{{line['airline']}}</td>
+		<td>{{line['rating']}}</td>
+		<td>{{line['comment']}}</td>
+	</tr>
+{% endfor %}
+</table> <br></br>
+
+<h2> FREQUENT CUSTOMER</h2>
+<table>
+	<th>Customer Name</th>
+	<th>Flights Taken</th>
+
+	<tr>
+		<td>{{frequent['Customer_Email']}}</td>
+		<td>{{frequent['Ticket_count']}}</td>
+	</tr>
+</table> <br></br>
+
+
+<h2>Last Month Revenue Info</h2>
+<table>
+	<th>Month</th>
+	<th>Total Revenue</th>
+	
+	<tr>
+		<td>{{lmonth['month']}}</td>
+		<td>{{lmonth['Final']}}</td>
+	</tr>
+</table> <br></br>
+
+
+<h2>Last Year Revenue Info</h2>
+	<table>
+	<th>Year</th>
+	<th>Total Revenue</th>
+
+	<tr>
+		<td>{{lyear['year']}}</td>
+		<td>{{lyear['Final']}}</td>
+	</tr>
+	</table> <br></br>
+
+
+	<h2>Customer Info Search</h2>
+	<form action="/staffCustomerS" method="POST">
+		
+		<label>Customer Email:</label>
+		<select name="Customer_Email" required>
+			<option value="">Select Customer Email</option>
+			{% for line in Customer_Email%}
+			<option value="{{ line['Customer_Email'] }}">{{ line['Customer_Email'] }} </option>	
+			{% endfor %}	
+		</select><br>
+
+		<label>Airline Name:</label>
+		<select name="Airline_Name" required>
+			<option value="">Select Airline Name</option>
+			{% for line in Airline%}
+			<option value="{{ line['Airline_Name'] }}">{{ line['Airline_Name'] }} </option>	
+			{% endfor %}	
+		</select><br>
+		
+		<input type="submit" value="Search">
+	</form> <br></br>
+
+
+	<h2>Ticket Reports Search</h2>
+	<form action="/staffReportS" method="POST">
+		<label>Ticket Search Start Date:</label>
+		<input type="date" name="start_date"><br><br>
+		
+		<label>Ticket Search End Date:</label>
+		<input type="date" name="end_date"><br><br>
+
+		<input type="submit" value="Search">
+	</form> <br></br>
+
+
+
+	<a href="/stafflogedIn">Go back</a>
+	<a href="/Slogout">Logout</a> <br> </br>
+</body>
+</html>

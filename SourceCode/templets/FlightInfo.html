@@ -1,0 +1,131 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+
+    <!-- Need to Add tracking spendind and a rate and comment section for past flights -->
+    <form action="/cancelFlight" method="POST">
+        <table>
+            <caption>Future Flights</caption>
+            <th>Ticket ID</th>
+            <th>Airline Name</th>
+            <th>Flight Number</th>
+            <th>Departure Airport</th>
+            <th>Departure Date</th>
+            <th>Arrival Airport</th>
+            <th>Arrival Date </th>
+            <th>First Name</th>
+            <th>Last Name </th>
+            <th>Price</th>
+            <th>Flight Status</th>
+            <th> Cancel Flight</th>
+
+            {% for line in future_flights %}
+            <tr>
+                <td>{{line['Ticket_ID']}}</td>
+                <td>{{line['Airline_Name']}}</td>
+                <td>{{line['Flight_Number']}}</td>
+                <td>{{line['Departure_Airport']}}</td>
+                <td>{{line['Departure_date']}}</td>
+                <td>{{line['Arrival_Airport']}}</td>
+                <td>{{line['Arrival_date']}}</td>
+                <td>{{line['Passenger_Fname']}}</td>
+                <td>{{line['Passenger_Lname']}}</td>
+                <td>{{line['final_price']}}</td>
+                <td>{{line['Flight_status']}}</td>
+                <td>Select: <input type="radio" name="Cancel1" value="{{line}}"></td>
+            </tr>
+            {% endfor %}
+        </table> <br><br />
+        <input type="submit" value="Cancel">
+    </form>
+
+
+    <form action="/Feedback" method="POST">
+        <table>
+            <caption>Past Flights</caption>
+            <thead>
+                <tr>
+                    <th>Ticket ID</th>
+                    <th>Airline Name</th>
+                    <th>Flight Number</th>
+                    <th>Departure Airport</th>
+                    <th>Departure Date</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Airport</th>
+                    <th>Arrival Date </th>
+                    <th>First Name</th>
+                    <th>Last Name </th>
+                    <th>Price</th>
+                    <th>Flight Status</th>
+                    <th> Rate?</th>
+                    <th>Comment?</th>
+
+                </tr>
+            </thead>
+
+
+            <tbody>
+                {% for line in past_flights %}
+                <tr>
+                    <td>{{ line['Ticket_ID'] }}</td>
+                    <td>{{ line['Airline_Name'] }}</td>
+                    <td>{{ line['Flight_Number'] }}</td>
+                    <td>{{ line['Departure_Airport'] }}</td>
+                    <td>{{ line['Departure_date'] }}</td>
+                    <td>{{ line['Departure_time'] }}</td>
+                    <td>{{ line['Arrival_Airport'] }}</td>
+                    <td>{{ line['Arrival_date'] }}</td>
+                    <td>{{ line['Passenger_Fname'] }}</td>
+                    <td>{{ line['Passenger_Lname'] }}</td>
+                    <td>{{ line['final_price'] }}</td>
+                    <td>{{ line['Flight_status'] }}</td>
+                    <td>Select: <input type="radio" name="PastFlight" value="{{line}}"></td>
+                    <td>Select: <input type="radio" name="Date" value="{{line['Departure_date']}}"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br><br>
+
+        
+
+            <Label for=" Rating"> Rate</Label>
+            <select name ="Rating" required>
+                <option value="">Select Rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+
+            </select>
+        
+                <label for="Comment">Comment</label>
+	        <input type="text" name = "Comment" required>
+    
+
+        <label>Submit</label>
+        <input type="submit" name="Submit"><br><br>
+    </form>
+
+
+    <a href="/CustomerA"> Back </a> <br> </br>
+</body>
+
+</html>

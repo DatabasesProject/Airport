@@ -1,0 +1,41 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+
+       <h2> List Of Customers</h2>
+       <table>
+        <th>Flight Number</th>
+        <th> Customer Email </th>
+        
+
+
+        {% for line in  data %}
+        <tr>
+            <td>{{line['Flight_Number']}}</td>
+            <td>{{line['Customer_Email']}}</td>
+       
+        </tr>
+        {% endfor %}
+    </table><br></br>
+
+
+
+
+    <a href="/stafflogedIn">Staff Account</a> <br></br>
+    <a href="/viewFlight"> GO Back </a>
+
+</body>
+
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+
+
+<style type="text/css">
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+</style>
+
+<h1>Create Airplane</h1>
+
+<body>
+
+    <div>
+        <form action='/insertAirplane' method="POST">
+             
+            <label> Airline:</label>
+			<select name="Airline_Name" required>
+				<option value="">Select Airline</option>
+				{% for line in Airlines%}
+				<option value="{{ line['Airline_Name'] }}">{{ line['Airline_Name'] }} </option>	
+				{% endfor %}	
+			</select><br><br>
+
+            <label>Airbus:</label>
+            <input type="number" name="airbus" placeholder=" 6 digts "> <br><br>
+
+            <label>Seats:</label>
+            <input type="number" name="seats"><br><br>
+
+            <label>Manufacturer:</label>
+            <input type="text" name="manufacturer"><br><br>
+
+            <label>Manufacture Date:</label>
+            <input type="date" name="Manufacture_date"><br><br>
+
+            <input type="submit" value="Create">
+
+            <br></br>
+
+
+        </form>
+
+    </div><br></br>
+
+
+    <h3> Airplanes </h3>
+    <table>
+        <th>Airline Name</th>
+        <th>Airbus</th>
+        <th>Seats</th>
+        <th>Manufacturer</th>
+        <th>Manufacture Date</th>
+
+        {% for line in data %}
+        <tr>
+            <td>{{line['Airline_Name']}}</td>
+            <td>{{line['Airbus']}}</td>
+            <td>{{line['Seats']}}</td>
+            <td>{{line['Manufacture']}}</td>
+            <td>{{line['Manufacture_Date']}}</td>
+        </tr>
+        {% endfor %}
+    </table> <br></br>
+
+
+    <a href="/stafflogedIn">Go Back</a><br> </br>
+
+</body>
+
+</html>

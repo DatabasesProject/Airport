@@ -1,0 +1,43 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+
+<h1> Flight Status</h1>
+    <table>
+        <th>Airline</th>
+        <th>Flight Number</th>
+        <th>Departure_Airport</th>
+        <th>Departure Date</th>
+        <th>Arrival_Airport</th>
+        <th>Flight Status</th>
+
+
+        
+        <tr>
+            <td>{{data['Airline_Name']}}</td>
+            <td>{{data['Flight_Number']}}</td>
+            <td>{{data['Departure_Airport']}}</td>
+            <td>{{data['Departure_date']}}</td>
+            <td>{{data['Arrival_Airport']}}</td>
+            <td>{{data['Flight_status']}}</td>
+        </tr>
+    
+    </table>  <br> </br>
+
+
+    <a href="/">Go back</a>
+</body>
+
+
+</html>

@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <h1> Account </h1>
+    </head>
+    <body>
+    
+    <style type="text/css">
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+
+
+<div>
+  
+<h2> Personal Information: </h2>
+
+  <label for=Email> Email: </label>
+  {{username}}<br> </br>
+
+  <!-- <label for=Password> Password: </label>
+  {{data['Customer_password']}}<br> </br> -->
+
+  <label for= Passenger_First_Name> First Name: </label>
+  {{data['First_name']}} <br> </br>
+
+  <label for= Last_Name> Last Name: </label>
+  {{data['Last_name']}} <br> </br>
+
+  <label for="Passenger DOB">Date Of Birth: </label>
+  {{data['Customer_date_of_birth']}} <br> </br>
+
+  <h3> Address: </h3>
+   
+  <label for="Street">Street: </label>
+  {{data['Street_name']}} <br> </br>
+
+  <label for="City">City: </label>
+  {{data['Customer_City']}} <br> </br>
+
+  <label for="State">State: </label>
+  {{data['Customer_State']}} <br> </br>
+
+  <label for="Zipcode">Zip Code: </label>
+  {{data['Zip_Code']}} <br> </br>
+
+  <h3> Passport Information: </h3>
+
+  <label for="Passport Number">Passport Number: </label>
+  {{data['Passport_Number']}} <br> </br>
+
+  <label for="Passport_Country">Passport Country: </label>
+  {{data['Passport_Country']}} <br> </br>
+
+  <label for="Passport Expiration">Passport Expiration: </label>
+  {{data['Passport_Expiration']}} <br> </br>
+
+  <h3> Spending Information: </h3>
+
+  <label for="Total Money Spent"> Money Spent Last Year: </label>
+  $ {{ money1['Year_Money']}} <br> </br>
+
+
+  <table>
+	<caption> Last 6 month spending</caption>
+        <th>Year</th>
+        <th>Month</th>
+        <th>Money Spent</th>
+
+        {% for line in money2 %}
+        <tr>
+            <td>{{line['year']}}</td>
+            <td>{{line['month']}}</td>
+            <td> $ {{line['total_spent']}}</td>
+            
+        </tr>
+        {% endfor %}
+    </table> <br></br>
+
+
+    <h2>Ticket Reports Search</h2>
+	<form action="/TrackSpending" method="POST">
+
+		<label>Start Date:</label>
+		<input type="date" name="start_date"><br><br>
+		
+		<label>End Date:</label>
+		<input type="date" name="end_date"><br><br>
+
+		<input type="submit" value="Search">
+	</form> <br></br>
+
+</div>
+
+    <a href="/FlightInfo">My Flights</a> <br> </br>
+    <a href="/"> Search For Flights</a> <br> </br>
+    <a href="/Clogout">Logout</a>
+    
+    </body>
+    
+    
+    </html>

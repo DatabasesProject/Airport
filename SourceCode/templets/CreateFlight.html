@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<h1>Create Flight</h1>
+</head>
+
+<body>
+
+	<div>
+		<form action="/insertFlight" method="POST">
+			
+			<label>Airport ID:</label>
+			<select name='Airport_ID' required>
+				<option value="">Select Airport ID Name</option>
+				{% for line in Airport%}
+				<option value="{{ line['Airport_ID'] }}">{{ line['Airport_ID'] }} </option>	
+				{% endfor %}	
+			</select><br> </br>
+
+			<label>Airline:</label>
+			<select name='Airline_Name' required>
+				<option value="">Select Airline Name</option>
+				{% for line in Airline%}
+				<option value="{{ line['Airline_Name'] }}">{{ line['Airline_Name'] }} </option>	
+				{% endfor %}	
+			</select><br> </br>
+
+			<label>Flight Number:</label>
+			<input type="number" name="Flight_Number" placeholder="Must be 6 digits"><br><br>
+
+			<label>Departure Date:</label>
+			<input type="date" name="Departure_date"><br><br>
+
+			<label>Departure Time:</label>
+			<input type="time" name="Departure_time"><br><br>
+
+			<label>Departure Airport:</label>
+			<select id="Departure_Airport" name="Departure_Airport" required>
+				<option value="">Select Departure Airport Name</option>
+				{% for line in Airport_D%}
+				<option value="{{ line['Airport_Name']}}">{{ line['Airport_Name'] }} </option>	
+				{% endfor %}	
+			</select><br> </br>
+
+			<label>Arrival Date:</label>
+			<input type="date" name="Arrival_date"><br><br>
+
+			<label>Arrival Time:</label>
+			<input type="time" name="Arrival_time"><br><br>
+
+			<label>Arrival Airport:</label>
+			<select name='Airival_Airport' required>
+				<option value="">Select Arrival Airport Name</option>
+				{% for line in Airport_A%}
+				<option value="{{ line['Airport_Name'] }}">{{ line['Airport_Name'] }} </option>	
+				{% endfor %}	
+			</select><br> </br>
+
+			<label>Base Price::</label>
+			<input type="number" name="BasePrice"><br><br>
+
+			<label>Airbus:</label>
+			<select name='Airbus' required>
+				<option value="">Select Airline Name</option>
+				{% for line in Airbus_N%}
+				<option value="{{ line['airbus'] }}">{{ line['airbus'] }} </option>	
+				{% endfor %}	
+			</select><br> </br>
+
+			<label>Status:</label>
+			<select name='Status' required>
+				<option value="">Select Flight Status</option>
+				<option value="On_Time">On_Time</option>
+				<option value="Delayed">Delayed</option>
+				<option value="Canceled">Canceled</option>
+			</select><br> </br>
+
+			<input type="submit" value="Create">
+		</form><br></br>
+
+	</div><br></br>
+
+	<a href="/stafflogedIn">Go Back</a>
+	<a href="/Slogout">Logout</a> <br> </br>
+
+</body>
+
+</html>

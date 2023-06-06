@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Flight Search</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		* {
+			box-sizing: border-box;
+			font-family: 'Lato', sans-serif;
+		}
+       
+		body {
+			margin: 0;
+			background-image: url("/images/vac.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+
+			color: #333;
+		}
+
+		header {
+			padding: 25px;
+			text-align: center;
+			background: #005F6B;
+			color: #fff;
+			font-size: 2.5em;
+			margin-bottom: 20px;
+		}
+
+		.navbar {
+			display: flex;
+			justify-content: left;
+			gap: 20px;
+			padding: 5px;
+		}
+
+		a {
+			padding: 10px 20px;
+			background-color: #005F6B;
+			color: white;
+			text-decoration: none;
+			border-radius: 100px;
+			font-weight: bold;
+			transition: background-color 0.2s ease-in-out;
+		}
+
+		a:hover {
+			background-color: #005F6B;
+		}
+
+		form {
+			padding: 20px;
+			background-color: #F5F5F5;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+			margin: 20px auto;
+			max-width: 300px;
+			/* Adjust this to your liking */
+			width: 100%;
+			/* Ensure it's responsive */
+			max-height: 485px;
+			height: 100%;
+		}
+
+		form label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+
+		form input[type="text"],
+		form select {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			margin-bottom: 5px;
+		}
+
+		form input[type="submit"] {
+			background-color: #005F6B;
+			color: white;
+			border: none;
+			margin-top: -10px;
+			padding: 10px 20px;
+			font-weight: bold;
+			cursor: pointer;
+			border-radius: 100px;
+			transition: background-color 0.2s ease-in-out;
+			display: block;
+			/* Make the button a block element */
+			margin: 0 auto;
+			/* Center the button */
+		}
+
+
+
+		form input[type="submit"]:hover {
+			background-color: #005F6B;
+		}
+
+		.tab {
+			margin-bottom: 20px;
+		}
+
+		.tab a {
+			padding: 10px 20px;
+			background-color: #f1f1f1;
+			background-color: #005F6B;
+			cursor: pointer;
+			transition: 0.3s;
+			border-radius: 100px;
+			margin: 0 5px;
+			font-weight: bold;
+		}
+
+		.tab a:hover {
+			background-color: #ddd;
+		}
+
+		.tab a.active {
+			background-color: #ccc;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: auto;
+			padding: 0 100px;
+			text-align: center;
+			margin-top: 100px;
+			/* adjust this to your liking */
+		}
+
+		.subsequent-div {
+			margin: 20px auto;
+		}
+
+		.error {
+			background-color: #f8d7da;
+			color: #721c24;
+			padding: 10px;
+			border-radius: 5px;
+			margin: 20px 0;
+		}
+	</style>
+</head>
+
+
+
+<body>
+
+	<header>Flight Search</header>
+
+	<div class="navbar">
+
+		{% if logged_in %}
+		<a href="/CustomerA"> Customer Account</a>
+		{% endif %}
+
+		{% if staff %}
+		<a href="/stafflogedIn"> Staff Account</a>
+		{% endif %}
+
+		{% if nonlogged %}
+		<a href="/login">Login</a>
+		<a href="/Register">Register</a>
+		{% endif %}
+	</div>
+
+
+
+	<div class="container">
+		<div class="tab">
+			<a href="?tab=one-way" class="tablinks {{ 'active' if selected_tab == 'one-way' else '' }}">One-Way</a>
+			<a href="?tab=Roundtrip"
+				class="tablinks {{ 'active' if selected_tab == 'Roundtrip' else '' }}">Roundtrip</a>
+			<a href="?tab=Flight_Status"
+				class="tablinks {{ 'active' if selected_tab == 'Flight_Status' else '' }}">Flight Status</a>
+		</div>
+	</div>
+	<main class="subsequent-div">
+
+		{% if selected_tab == 'one-way' %}
+		<div id="one-way" class="tabcontent"></div>
+
+		<form action="/OneWay" method="POST">
+
+			<label>Leaving From:</label>
+			<select name="Departure_Airport" required>
+				<option value="">Select Departure Airport</option>
+				{% for line in Departure%}
+				<option value="{{ line['Departure_Airport'] }}">{{ line['Departure_Airport'] }} </option>
+				{% endfor %}
+			</select>
+			<br>
+
+			<label> Going To:</label>
+			<select name="Arrival_Airport" required>
+				<option value="">Select Arrival Airport</option>
+				{% for line in Arrival%}
+				<option value="{{ line['Arrival_Airport'] }}">{{ line['Arrival_Airport'] }} </option>
+				{% endfor %}
+			</select>
+			<br>
+
+			<label>Departure Date:</label>
+			<input type="date" name="departure_date" placeholder="Year-Month-Day">
+			<br></br>
+
+			<label>Number of Travelers:</label>
+			<select id="num_travelers" name="num_travelers" required>
+				<option value="1" selected>1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select> <br>
+
+			<input type="submit" value=Submit><br><br>
+		</form>
+		</div>
+		{% endif %}
+
+		{% if selected_tab == 'Roundtrip' %}
+		<div id="Roundtrip" class="tabcontent">
+			<!-- <h2>Roundtrip</h2> -->
+			<form action="/Roundtrip" method="POST">
+
+				<label>Leaving From:</label>
+				<select name="Departure_Airport" required>
+					<option value="">Select Departure Airport</option>
+					{% for line in Departure%}
+					<option value="{{ line['Departure_Airport'] }}">{{ line['Departure_Airport'] }} </option>
+					{% endfor %}
+				</select> <br>
+
+
+				<label> Going To:</label>
+				<select name="Arrival_Airport" required>
+					<option value="">Select Arrival Airport</option>
+					{% for line in Arrival%}
+					<option value="{{ line['Arrival_Airport'] }}">{{ line['Arrival_Airport'] }} </option>
+					{% endfor %}
+				</select> <br>
+
+				<label>Departure Date:</label>
+				<input type="date" name="departure_date">
+                 <br>  </br>
+
+				<label>Return Date:</label>
+				<input type="date" name="return_date">
+				<br></br>
+
+				<label>Number of Travelers:</label>
+				<select id="num_travelers" name="num_travelers" required>
+					<option value="1" selected>1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select> <br>
+
+				<input type="submit" value=Submit><br><br>
+			</form>
+		</div>
+		{% endif %}
+
+		{% if selected_tab == 'Flight_Status' %}
+		<div id="Flight_Status" class="tabcontent">
+			<!-- <h2>Flight Status</h2> -->
+			<form action="/FlightStatus" method="POST">
+
+				<label>Airline Name:</label>
+				<select name='Airline_Name' required>
+					<option value="">Select Airline Name</option>
+					{% for line in Airline_N%}
+					<option value="{{ line['Airline_Name'] }}">{{ line['Airline_Name'] }} </option>
+					{% endfor %}
+				</select>
+
+				<label>Flight Number:</label>
+				<select name="Flight_Number" required>
+					<option value="">Select Flight Number</option>
+					{% for line in Flight_num%}
+					<option value="{{ line['flight_number'] }}">{{ line['flight_number'] }} </option>
+					{% endfor %}
+				</select>
+
+				<label>Arrival Date:</label>
+				<input type="date" name="Arrival_date" required>
+				<br></br>
+
+				<input type="submit" value="Search"><br><br>
+			</form>
+		</div>
+		{% endif %}
+
+		{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+		{% endif %}
+
+	</main>
+</body>
+
+</html>
